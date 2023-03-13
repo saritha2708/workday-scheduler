@@ -34,12 +34,13 @@ $(function () {
   // gets stored events of the day from local storage and displays on the page
   function setDayEvent() {
     dayEvents = JSON.parse(localStorage.getItem("dayEvents"));
-    console.log(dayEvents);
     if(dayEvents !== null) {
-      let objectKeys = Object.keys(dayEvents);
+      let objectKeys = Object.keys(dayEvents);//storing all keys of dayEvents object in an array
       objectKeys.forEach((key) => {
         $(`#${key}`).children('.description').text(dayEvents[key]);  
       })   
+    } else {
+      dayEvents = {};
     }
 
   }
